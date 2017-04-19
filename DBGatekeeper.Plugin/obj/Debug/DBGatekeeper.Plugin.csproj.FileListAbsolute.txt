@@ -1,0 +1,4 @@
+C:\Users\Administrator\Downloads\DBGatekeeper - Copy\DBGatekeeper.Plugin\bin\Debug\DBGatekeeper.Plugin.dll
+C:\Users\Administrator\Downloads\DBGatekeeper - Copy\DBGatekeeper.Plugin\bin\Debug\DBGatekeeper.Plugin.pdb
+C:\Users\Administrator\Downloads\DBGatekeeper - Copy\DBGatekeeper.Plugin\obj\Debug\DBGatekeeper.Plugin.dll
+C:\Users\Administrator\Downloads\DBGatekeeper - Copy\DBGatekeeper.Plugin\obj\Debug\DBGatekeeper.Plugin.pdb

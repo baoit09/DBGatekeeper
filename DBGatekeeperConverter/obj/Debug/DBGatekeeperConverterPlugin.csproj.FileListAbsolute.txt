@@ -1,0 +1,11 @@
+C:\Users\Administrator\Downloads\DBGatekeeper - Copy\bin\Plugins\DBGatekeeperConverterPlugin.dll
+C:\Users\Administrator\Downloads\DBGatekeeper - Copy\bin\Plugins\DBGatekeeperConverterPlugin.pdb
+C:\Users\Administrator\Downloads\DBGatekeeper - Copy\DBGatekeeperConverter\obj\Debug\DBGatekeeperConverterPlugin.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Downloads\DBGatekeeper - Copy\DBGatekeeperConverter\obj\Debug\DBGatekeeperConverterPlugin.dll
+C:\Users\Administrator\Downloads\DBGatekeeper - Copy\DBGatekeeperConverter\obj\Debug\DBGatekeeperConverterPlugin.pdb
+C:\Users\Administrator\Downloads\DBGatekeeper - Copy\DBGatekeeperConverter\bin\Debug\DBGatekeeperConverterPlugin.dll
+C:\Users\Administrator\Downloads\DBGatekeeper - Copy\DBGatekeeperConverter\bin\Debug\DBGatekeeperConverterPlugin.pdb
+C:\Users\Administrator\Downloads\DBGatekeeper - Copy\DBGatekeeperConverter\bin\Debug\DBGatekeeper.Plugin.dll
+C:\Users\Administrator\Downloads\DBGatekeeper - Copy\DBGatekeeperConverter\bin\Debug\DBGatekeeper.Plugin.pdb
+C:\Users\Administrator\Downloads\DBGatekeeper - Copy\DBGatekeeper\bin\Plugins\DBGatekeeperConverterPlugin.dll
+C:\Users\Administrator\Downloads\DBGatekeeper - Copy\DBGatekeeper\bin\Plugins\DBGatekeeperConverterPlugin.pdb

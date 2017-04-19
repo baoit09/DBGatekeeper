@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HISModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Disease">
+    <Key>
+      <PropertyRef Name="DiseaseID" />
+    </Key>
+    <Property Name="DiseaseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PatientID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DiseaseName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DiseaseDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Disease1" Relationship="Self.FK_Disease_Disease" FromRole="Disease" ToRole="Disease1" />
+    <NavigationProperty Name="Disease2" Relationship="Self.FK_Disease_Disease" FromRole="Disease1" ToRole="Disease" />
+    <NavigationProperty Name="PatientInformation" Relationship="Self.FK_Disease_PatientInformation" FromRole="Disease" ToRole="PatientInformation" />
+  </EntityType>
+  <EntityType Name="PatientInformation">
+    <Key>
+      <PropertyRef Name="PatientID" />
+    </Key>
+    <Property Name="PatientID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PatientName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DOB" Type="DateTime" Precision="0" />
+    <Property Name="Gender" Type="Int32" />
+    <NavigationProperty Name="Diseases" Relationship="Self.FK_Disease_PatientInformation" FromRole="PatientInformation" ToRole="Disease" />
+  </EntityType>
+  <Association Name="FK_Disease_Disease">
+    <End Role="Disease" Type="Self.Disease" Multiplicity="1" />
+    <End Role="Disease1" Type="Self.Disease" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Disease">
+        <PropertyRef Name="DiseaseID" />
+      </Principal>
+      <Dependent Role="Disease1">
+        <PropertyRef Name="DiseaseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Disease_PatientInformation">
+    <End Role="PatientInformation" Type="Self.PatientInformation" Multiplicity="0..1" />
+    <End Role="Disease" Type="Self.Disease" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PatientInformation">
+        <PropertyRef Name="PatientID" />
+      </Principal>
+      <Dependent Role="Disease">
+        <PropertyRef Name="PatientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HISEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Diseases" EntityType="Self.Disease" />
+    <EntitySet Name="PatientInformations" EntityType="Self.PatientInformation" />
+    <AssociationSet Name="FK_Disease_Disease" Association="Self.FK_Disease_Disease">
+      <End Role="Disease" EntitySet="Diseases" />
+      <End Role="Disease1" EntitySet="Diseases" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Disease_PatientInformation" Association="Self.FK_Disease_PatientInformation">
+      <End Role="PatientInformation" EntitySet="PatientInformations" />
+      <End Role="Disease" EntitySet="Diseases" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

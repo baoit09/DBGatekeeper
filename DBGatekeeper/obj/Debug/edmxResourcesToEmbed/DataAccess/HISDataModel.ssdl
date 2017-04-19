@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HISModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Disease">
+    <Key>
+      <PropertyRef Name="DiseaseID" />
+    </Key>
+    <Property Name="DiseaseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PatientID" Type="nvarchar" MaxLength="50" />
+    <Property Name="DiseaseName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+    <Property Name="DiseaseDate" Type="date" />
+  </EntityType>
+  <EntityType Name="PatientInformation">
+    <Key>
+      <PropertyRef Name="PatientID" />
+    </Key>
+    <Property Name="PatientID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PatientName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DOB" Type="date" />
+    <Property Name="Gender" Type="int" />
+  </EntityType>
+  <Association Name="FK_Disease_Disease">
+    <End Role="Disease" Type="Self.Disease" Multiplicity="1" />
+    <End Role="Disease1" Type="Self.Disease" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Disease">
+        <PropertyRef Name="DiseaseID" />
+      </Principal>
+      <Dependent Role="Disease1">
+        <PropertyRef Name="DiseaseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Disease_PatientInformation">
+    <End Role="PatientInformation" Type="Self.PatientInformation" Multiplicity="0..1" />
+    <End Role="Disease" Type="Self.Disease" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PatientInformation">
+        <PropertyRef Name="PatientID" />
+      </Principal>
+      <Dependent Role="Disease">
+        <PropertyRef Name="PatientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HISModelStoreContainer">
+    <EntitySet Name="Disease" EntityType="Self.Disease" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PatientInformation" EntityType="Self.PatientInformation" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Disease_Disease" Association="Self.FK_Disease_Disease">
+      <End Role="Disease" EntitySet="Disease" />
+      <End Role="Disease1" EntitySet="Disease" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Disease_PatientInformation" Association="Self.FK_Disease_PatientInformation">
+      <End Role="PatientInformation" EntitySet="PatientInformation" />
+      <End Role="Disease" EntitySet="Disease" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
