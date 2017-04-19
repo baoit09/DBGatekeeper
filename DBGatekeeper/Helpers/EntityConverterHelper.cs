@@ -13,33 +13,47 @@ namespace DBGatekeeper.Helpers
     {
         public Hashtable Convert(Hashtable srcEntity, string sEntityType)
         {
-            string binPath = GetBinDirectory();
-            string pluginFolder = Path.Combine(binPath, "Plugins");
-
-            DirectoryInfo di = new DirectoryInfo(pluginFolder);
-
-            if (!di.Exists)
-                return srcEntity;
-
-            FileInfo fi = di.GetFiles().FirstOrDefault();
-
-            if (!fi.Exists)
-                return srcEntity;
-
-            Assembly assembly = Assembly.LoadFrom(fi.FullName);
-
-            Type assignTypeFrom = null;
-
-            if (sEntityType == "Patient")
+            try
             {
-                assignTypeFrom = typeof(IPatientConverter);
+                string binPath = GetBinDirectory();
+                string pluginFolder = Path.Combine(binPath, "Plugins");
+
+                DirectoryInfo di = new DirectoryInfo(pluginFolder);
+
+                if (di == null || !di.Exists)
+                    return srcEntity;
+
+                FileInfo fi = di.GetFiles().FirstOrDefault();
+
+                if (fi == null || !fi.Exists)
+                    return srcEntity;
+
+                Assembly assembly = Assembly.LoadFrom(fi.FullName);
+
+                Type assignTypeFrom = null;
+
+                if (sEntityType == "Patient")
+                {
+                    assignTypeFrom = typeof(IPatientConverter);
+                }
+                else
+                {
+                    assignTypeFrom = typeof(IStudyConverter);
+                }
+
+                Type convertType = assembly.GetTypes().Where(t => assignTypeFrom.IsAssignableFrom(t)).FirstOrDefault();
+
+                if (convertType == null)
+                    return srcEntity;
+
+                IPatientConverter patientConverter = (IPatientConverter)Activator.CreateInstance(convertType);
+
+                return patientConverter.Convert(srcEntity);
             }
-
-            Type convertType = assembly.GetTypes().Where(t => assignTypeFrom.IsAssignableFrom(t)).FirstOrDefault();
-
-            IPatientConverter patientConverter = (IPatientConverter)Activator.CreateInstance(convertType);
-
-            return patientConverter.Convert(srcEntity);
+            catch (Exception ex)
+            {
+                return srcEntity;
+            }
         }
 
         private string GetBinDirectory()

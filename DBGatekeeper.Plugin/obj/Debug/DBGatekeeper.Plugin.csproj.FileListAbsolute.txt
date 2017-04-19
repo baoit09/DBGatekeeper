@@ -2,3 +2,7 @@ C:\Users\Administrator\Downloads\DBGatekeeper - Copy\DBGatekeeper.Plugin\bin\Deb
 C:\Users\Administrator\Downloads\DBGatekeeper - Copy\DBGatekeeper.Plugin\bin\Debug\DBGatekeeper.Plugin.pdb
 C:\Users\Administrator\Downloads\DBGatekeeper - Copy\DBGatekeeper.Plugin\obj\Debug\DBGatekeeper.Plugin.dll
 C:\Users\Administrator\Downloads\DBGatekeeper - Copy\DBGatekeeper.Plugin\obj\Debug\DBGatekeeper.Plugin.pdb
+D:\Projects Demo\DBGatekeeper\DBGatekeeper.Plugin\bin\Debug\DBGatekeeper.Plugin.dll
+D:\Projects Demo\DBGatekeeper\DBGatekeeper.Plugin\bin\Debug\DBGatekeeper.Plugin.pdb
+D:\Projects Demo\DBGatekeeper\DBGatekeeper.Plugin\obj\Debug\DBGatekeeper.Plugin.dll
+D:\Projects Demo\DBGatekeeper\DBGatekeeper.Plugin\obj\Debug\DBGatekeeper.Plugin.pdb

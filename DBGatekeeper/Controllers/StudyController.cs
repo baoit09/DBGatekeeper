@@ -31,6 +31,9 @@ namespace DBGatekeeper.Controllers
         // POST api/Study
         public Hashtable Post([FromBody]dynamic value)
         {
+            if (value == null)
+                return null;
+
             string sqlString = value.SQLString.Value;
             string checkSum = value.Checksum.Value;
 

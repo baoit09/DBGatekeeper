@@ -9,3 +9,8 @@ C:\Users\Administrator\Downloads\DBGatekeeper - Copy\DBGatekeeperConverter\bin\D
 C:\Users\Administrator\Downloads\DBGatekeeper - Copy\DBGatekeeperConverter\bin\Debug\DBGatekeeper.Plugin.pdb
 C:\Users\Administrator\Downloads\DBGatekeeper - Copy\DBGatekeeper\bin\Plugins\DBGatekeeperConverterPlugin.dll
 C:\Users\Administrator\Downloads\DBGatekeeper - Copy\DBGatekeeper\bin\Plugins\DBGatekeeperConverterPlugin.pdb
+D:\Projects Demo\DBGatekeeper\DBGatekeeper\bin\Plugins\DBGatekeeperConverterPlugin.dll
+D:\Projects Demo\DBGatekeeper\DBGatekeeper\bin\Plugins\DBGatekeeperConverterPlugin.pdb
+D:\Projects Demo\DBGatekeeper\DBGatekeeperConverter\obj\Debug\DBGatekeeperConverterPlugin.csprojResolveAssemblyReference.cache
+D:\Projects Demo\DBGatekeeper\DBGatekeeperConverter\obj\Debug\DBGatekeeperConverterPlugin.dll
+D:\Projects Demo\DBGatekeeper\DBGatekeeperConverter\obj\Debug\DBGatekeeperConverterPlugin.pdb

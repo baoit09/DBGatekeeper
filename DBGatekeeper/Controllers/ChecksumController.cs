@@ -31,10 +31,13 @@ namespace DBGatekeeper.Controllers
         // POST api/checksum
         public Hashtable Post([FromBody]dynamic value)
         {
+            if (value == null)
+                return null;
+
             Hashtable result = new Hashtable();
 
             string sqlString = value.SQLString.Value;
-            string sEntityType = value.EntityType;
+            string sEntityType = value.EntityType.Value;
             string sEthereumAddress = value.EthereumAddress.Value;
 
             Hashtable srcEntity = _entityService.GetEntity(sqlString);

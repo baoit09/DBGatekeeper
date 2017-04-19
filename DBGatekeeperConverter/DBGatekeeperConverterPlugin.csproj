@@ -47,6 +47,7 @@
     <ProjectReference Include="..\DBGatekeeper.Plugin\DBGatekeeper.Plugin.csproj">
       <Project>{848b98e2-886a-454d-a864-ece1f225f331}</Project>
       <Name>DBGatekeeper.Plugin</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
