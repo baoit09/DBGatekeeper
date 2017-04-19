@@ -11,6 +11,9 @@ namespace DBGatekeeper.Helpers
 {
     public class EntityConverterHelper
     {
+        private IPatientConverter patientConverter = null;
+        private IStudyConverter studyConverter = null;
+
         public Hashtable Convert(Hashtable srcEntity, string sEntityType)
         {
             try
@@ -34,21 +37,30 @@ namespace DBGatekeeper.Helpers
 
                 if (sEntityType == "Patient")
                 {
-                    assignTypeFrom = typeof(IPatientConverter);
+                    if (patientConverter == null)
+                    {
+                        assignTypeFrom = typeof(IPatientConverter);
+                        Type convertType = assembly.GetTypes().Where(t => assignTypeFrom.IsAssignableFrom(t)).FirstOrDefault();
+                        if (convertType == null)
+                            return srcEntity;
+                        patientConverter = (IPatientConverter)Activator.CreateInstance(convertType);
+                    }
+
+                    return patientConverter.Convert(srcEntity);
                 }
                 else
                 {
-                    assignTypeFrom = typeof(IStudyConverter);
+                    if (studyConverter == null)
+                    {
+                        assignTypeFrom = typeof(IStudyConverter);
+                        Type convertType = assembly.GetTypes().Where(t => assignTypeFrom.IsAssignableFrom(t)).FirstOrDefault();
+                        if (convertType == null)
+                            return srcEntity;
+                        studyConverter = (IStudyConverter)Activator.CreateInstance(convertType);
+                    }
+
+                    return studyConverter.Convert(srcEntity);
                 }
-
-                Type convertType = assembly.GetTypes().Where(t => assignTypeFrom.IsAssignableFrom(t)).FirstOrDefault();
-
-                if (convertType == null)
-                    return srcEntity;
-
-                IPatientConverter patientConverter = (IPatientConverter)Activator.CreateInstance(convertType);
-
-                return patientConverter.Convert(srcEntity);
             }
             catch (Exception ex)
             {
